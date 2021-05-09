@@ -24,7 +24,7 @@ Configs in debian launched in Qemu to install Docker.
 -- apt `install openssh-server` and check service is running `systemctl status sshd`
 -- Enable ssh on system boot, check the service is enable with `systemctl list-units-files | grep enabled | grep ssh`, if no results shown on the terminal run `systemctl enable ssh`
 -- Disabling root login nano `nano /etc/ssh/sshd_config` uncoment `PermitRootLogin no`
--- Power off the machine `poweroff`, and now can run with `qemu-system-x86_64 DebianDockerVD.qcow2 -nic user,hostfwd=tcp::2222-:22` and connect from host with `ssh gunter@127.0.0.1 -p 2222`
+-- Power off the machine `poweroff`, and now can run with `qemu-system-x86_64 DebianDockerVD.qcow2 -nic user,hostfwd=tcp::2222-:22 -m 2048 enable-kvm` and connect from host with `ssh gunter@127.0.0.1 -p 2222`
 
 -> Enable Key ssh
 -> Install vim Import .vimrc
