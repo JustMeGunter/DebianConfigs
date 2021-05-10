@@ -3,7 +3,7 @@ Configs in debian launched in Qemu to install Docker.
 
 ## Qemu initial configuration.
 - Create the hard disk `qemu-img create -f qcow2 DebianDockerVD.qcow2 20G`
-`qemu-system-x86_64 -cdrom debian.iso -boot order=d -drive file=DevianDockerVD.qcow2,format=qcow2 -m 1024`
+- Star the installation `qemu-system-x86_64 -cdrom debian.iso -boot order=d -drive file=DevianDockerVD.qcow2,format=qcow2 -m 1024`
 - Follow the installation.
 
 ## Debian configuration.
@@ -28,7 +28,17 @@ Configs in debian launched in Qemu to install Docker.
 - Set up sudo
 -- Isntall sudo `apt install sudo`
 -- Add user to sudo group `usermod -a -G sudo username`
-
+- Set up sshkey
+-- On the CLIENT `ssh-keygen -t rsa -b 4096 -C "comment"` and follow de steps.
+-- On the SERVER `mkdir -p /home/user_name/.ssh && touch /home/user_name/.ssh/authorized_keys`, `vim authorized_keys` and copy the public key.
+-- Change permissions `chmod 700 /home/user_name/.ssh && chmod 600 /home/user_name/.ssh/authorized_keys`
+-- Change owner `chown -R username:username /home/username/.ssh`
+-- Config sshd `vim /etc/ssh/sshd_config`
+--- `PasswordAuthentication no`
+--- `AllowUser username`
+- Restart service `systemctl restart ssh`
+- Check all is fine `systemctl status ssh`
+u`uuu
 -> Enable Key ssh
 -> Install vim Import .vimrc
 -> Install docker
