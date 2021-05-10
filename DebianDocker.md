@@ -38,7 +38,13 @@ Configs in debian launched in Qemu to install Docker.
 --- `AllowUser username`
 - Restart service `systemctl restart ssh`
 - Check all is fine `systemctl status ssh`
-u`uuu
+### Docker.
+- Installing Docker `sudo apt install apt-transport-https ca-certificates curl gnupg2 software-properties-common`
+- Add GPG key `curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -`
+- Add the Docker repository APT sources `add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/debian $(lsb_release -cs) stable"`
+- Update `apt update`
+- Install Docker `docker-ce`
+
 -> Enable Key ssh
 -> Install vim Import .vimrc
 -> Install docker
