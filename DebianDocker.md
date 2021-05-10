@@ -44,7 +44,7 @@ Configs in debian launched in Qemu to install Docker.
 - Add the Docker repository APT sources `add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/debian $(lsb_release -cs) stable"`
 - Update `apt update`
 - Install Docker `docker-ce`
+- Executing docker command without sudo adding user to docker group `usermod -aG docker ${USER}`, apply the new group membership `su - ${USER}`.
+- Confirm user is now added `id -nG`
 
--> Enable Key ssh
 -> Install vim Import .vimrc
--> Install docker
