@@ -35,7 +35,7 @@ Configs in debian launched in Qemu to install Docker.
 -- Change owner `chown -R username:username /home/username/.ssh`
 -- Config sshd `vim /etc/ssh/sshd_config`
 --- `PasswordAuthentication no`
---- `AllowUser username`
+--- `AllowUsers username`
 - Restart service `systemctl restart ssh`
 - Check all is fine `systemctl status ssh`
 ### Docker.
